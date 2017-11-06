@@ -119,7 +119,7 @@ print(mx.asnumpy(out))
         <Code execution example>  
         python main.py --state --epoch 100 --noise_size 100 --batch_size 200 --save_period 100 --dataset CIFAR10 --load_weights 100
         ```
-    * [***Neural Style - using Symbol.API only. - It is being modified***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/applications/NeuralStyle)
+    * [***Neural Style - using Symbol.API only.***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/applications/NeuralStyle)
         ```cmd
         to configure a network of flexible structure, use 'bind function' of Symbol.API and 'optimizer class'. - See the code for more information!!!
         ```
