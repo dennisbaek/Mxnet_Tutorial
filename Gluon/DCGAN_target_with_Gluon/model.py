@@ -217,12 +217,15 @@ def DCGAN(epoch = 100, batch_size=128, save_period=10, load_period=100, optimize
 
             #1. Discriminator : (1)maximize Log(D(x)) + (2)Log(1-D(G(z)))
             with autograd.record(train_mode=True):
+                print("\n<D(X) , G(X)>")
                 output=discriminator(data)
                 #(1)
+                print("real_D(X) : {}".format(nd.mean(nd.sigmoid(output)).asscalar()))
                 real=SBCE(output,real_label)
                 #(2)
                 fake_real=generator(target_noise)
                 output=discriminator(fake_real)
+                print("fake_real_D(X) : {}".format(nd.mean(nd.sigmoid(output)).asscalar()))
                 fake_real=SBCE(output,fake_label)
                 # cost definition
                 discriminator_cost=real+fake_real
@@ -235,6 +238,7 @@ def DCGAN(epoch = 100, batch_size=128, save_period=10, load_period=100, optimize
 
                 fake=generator(target_noise)
                 output=discriminator(fake)
+                print("fake_G(X) : {}".format(nd.mean(nd.sigmoid(output)).asscalar()))
 
                 #(3)
                 Generator_cost=SBCE(output,real_label)

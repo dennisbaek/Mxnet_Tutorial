@@ -63,13 +63,32 @@ def algorithm(content_a=1, style_b=1, content_image=None, style_image=None, nois
     arg_dict= dict(zip(arg_names, [mx.nd.zeros(shape, ctx=ctx) for shape in arg_shapes]))
     arg_dict["content_"]=content_image
     arg_dict["style_"]=style_image
-    #grad_dict=dict(noise_=arg_dict["noise_"])
     '''
-    Since noise_image should be kept as a single value throughout the code, do not use copy or copyto functions. - list is a mutable type.
+    args and args_grad must have their own spaces.
+
+    args : list of NDArray or dict of str to NDArray
+        Input arguments to the symbol.
+
+        - If the input type is a list of `NDArray`, the order should be same as the order
+          of `list_arguments()`.
+        - If the input type is a dict of str to `NDArray`, then it maps the name of arguments
+          to the corresponding `NDArray`.
+        - In either case, all the arguments must be provided.
+
+    args_grad : list of NDArray or dict of str to `NDArray`, optional
+        When specified, `args_grad` provides NDArrays to hold
+        the result of gradient value in backward. 
+
+        - If the input type is a list of `NDArray`, the order should be same as the order
+          of `list_arguments()`.
+        - If the input type is a dict of str to `NDArray`, then it maps the name of arguments
+          to the corresponding NDArray.
+        - When the type is a dict of str to `NDArray`, one only need to provide the dict
+          for required argument gradient.
+          Only the specified argument gradient will be calculated.
     '''
     arg_dict["noise_"]=noise_image
-    grad_dict=dict(noise_=arg_dict["noise_"])
-    print(grad_dict["noise_"] is arg_dict["noise_"]) # why true????
+    grad_dict=dict(noise_=mx.nd.zeros(shape=arg_dict["noise_"].shape, ctx=ctx))
 
     #(4) compute content loss using  cov4_2
     batch_size, filter, height, width = output_shapes[0] # or output_shapes[6]
