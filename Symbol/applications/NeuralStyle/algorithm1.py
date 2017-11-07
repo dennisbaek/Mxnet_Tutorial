@@ -62,11 +62,16 @@ def algorithm(content_a=1, style_b=1, content_image=None, style_image=None, nois
     arg_dict= dict(zip(arg_names, [mx.nd.zeros(shape, ctx=ctx) for shape in arg_shapes]))
     arg_dict["content_"]=content_image
     arg_dict["style_"]=style_image
+    grad_dict=dict(noise_=arg_dict["noise_"])
 
     #The use of the copy or copyto function is really important in bind.
     # - You must use the copy or copyto function to update the variable you want.
+    '''
+    Since noise_image should be kept as a single value throughout the code, do not use copy or copyto functions. - list is a mutable type.
+    '''
     arg_dict["noise_"]=noise_image
-    grad_dict=dict(noise_=arg_dict["noise_"].copy())
+
+    #grad_dict=dict(noise_=arg_dict["noise_"].copy())
 
     #(4) compute content loss using  cov4_2
     batch_size, filter, height, width = output_shapes[0] # or output_shapes[6]
@@ -101,8 +106,8 @@ def algorithm(content_a=1, style_b=1, content_image=None, style_image=None, nois
     total_loss=mx.sym.MakeLoss(data=(content_a*content_loss+style_b*style_loss),grad_scale=1)
 
     # We visualize the network structure with output size (the batch_size is ignored.)
-    graph = mx.viz.plot_network(symbol=total_loss)  # The diagram can be found on the Jupiter notebook.
-    graph.view()
+    #graph = mx.viz.plot_network(symbol=total_loss)  # The diagram can be found on the Jupiter notebook.
+    #graph.view()
 
     #(5) How to get pretrained model from mxnet 'symbol' - VGG19
     pretrained = mx.nd.load("vgg19.params")
@@ -117,10 +122,8 @@ def algorithm(content_a=1, style_b=1, content_image=None, style_image=None, nois
         else:
           print("Skip argument {}".format(name))
 
-    print(total_loss.list_arguments())
     return total_loss.bind(ctx=ctx, args=arg_dict, args_grad=grad_dict, grad_req="write")
 
-algorithm()
 #If you are wondering about bind, read the explanation below.
 """Binds the current symbol to an executor and returns it.
 
