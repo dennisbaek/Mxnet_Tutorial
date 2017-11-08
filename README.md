@@ -29,7 +29,19 @@ print(mx.asnumpy(out))
  [ 1.  1.  1.]]
 ```      
 >## ***Topic 1 : Symbolic Programming***
+
+* ### ***Neural Networks basic with <Symbol.API + Optimizer Class>***
+    ```python
+    The following code is the most basic mxnet 'symbolic programming' technique using only 'Symbol.API', 'Symbol.bind Function', and Optimizer classes. It is very flexible.
+    ```
+    * [***Fully Connected Neural Network with SoftmaxOutput : Classifying the MNIST data -not yet***]()
+
 * ### ***Neural Networks basic with <Symbol.API + Module.API>***
+
+    ```python
+    The following code is a high-level interface using 'Symbol.API' and 'Module.API'. There is a drawback that it is not flexible in network configuration.
+    ```
+
     * [***Fully Connected Neural Network with LogisticRegressionOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with_LogisticRegressionOutput)
 
     * [***Fully Connected Neural Network with SoftmaxOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with_softmax)
@@ -162,11 +174,13 @@ print(mx.asnumpy(out))
 
         * [***Recurrent Neural Network : Classifying the MNIST and Fashion MNIST data - not yet***]()
 
-* ### ***Neural Networks With <NDArray.API + Gluon Package + Autograd Package>***
+* ### ***Neural Networks With <Gluon Package + NDArray.API + Autograd Package>***
 
     ```python
     The Gluon package is different from mxnet-symbolic coding.
     It is imperactive coding and focuses on mxnet with NDArray and Gluon.
+
+    - You can think of it as a deep learning framework that wraps NDARRAY.API easily for users to use.
     ```
 
     * #### The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
@@ -196,7 +210,12 @@ print(mx.asnumpy(out))
 * ### ***Neural Networks Applications with <NDArray.API + Gluon Package + Autograd Package>***
 
     * [***Predicting lotto numbers in regression analysis***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_lotto_numbers_in_regression_analysis_using_Gluon)
-    
+
+    * [***Neural Style using NDArray.API-not yet***]()
+        ```cmd
+        To configure a network of flexible structure, You should be able to set the object you want to differentiate. - See the code for more information!!!
+        ```
+
     * [***Neural Style using Gluon Package***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/NeuralStyle)
         ```cmd
         To configure a network of flexible structure, You should be able to set the object you want to differentiate. - See the code for more information!!!
@@ -205,8 +224,6 @@ print(mx.asnumpy(out))
     * [***Generative Adversarial Networks with CIFAR10 , FashionMNIST***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_with_Gluon)
 
     * [***Generative Adversarial Networks Targeting with CIFAR10 , MNIST***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_target_with_Gluon)
-
-    * [***Pixel to Pixel Generative Adversarial Networks - not yet***]()
 
     * I plan to continue various projects in the future.!!!!!
 
