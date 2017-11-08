@@ -193,11 +193,11 @@ print(mx.asnumpy(out))
 
                 * [More information on `block` and `hybridblock`](http://thestraightdope.mxnet.io/chapter07_distributed-learning/hybridize.html) 
         
-* ### ***Neural Networks Applications***
+* ### ***Neural Networks Applications with <NDArray.API + Gluon Package + Autograd Package>***
 
     * [***Predicting lotto numbers in regression analysis***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_lotto_numbers_in_regression_analysis_using_Gluon)
     
-    * [***Neural Style***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/NeuralStyle)
+    * [***Neural Style using Gluon Package***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/NeuralStyle)
         ```cmd
         To configure a network of flexible structure, You should be able to set the object you want to differentiate. - See the code for more information!!!
         ```
