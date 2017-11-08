@@ -1,4 +1,3 @@
 vgg19 weights download page
-
-http://data.dmlc.ml/mxnet/models/
 https://mxnet.incubator.apache.org/model_zoo/
+http://data.dmlc.ml/models/imagenet/vgg/vgg19-0000.params

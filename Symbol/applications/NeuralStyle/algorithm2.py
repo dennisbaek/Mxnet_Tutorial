@@ -172,8 +172,8 @@ def algorithm(content_a=1, style_b=1, content_image=None, style_image=None, nois
     total_loss=mx.sym.MakeLoss(data=(content_a*content_loss+style_b*style_loss),grad_scale=1)
 
     # We visualize the network structure with output size (the batch_size is ignored.)
-    #graph = mx.viz.plot_network(symbol=total_loss)  # The diagram can be found on the Jupiter notebook.
-    #graph.view()
+    graph = mx.viz.plot_network(symbol=total_loss)  # The diagram can be found on the Jupiter notebook.
+    graph.view()
 
     #(5) How to get pretrained model from mxnet 'symbol' - VGG19
     pretrained = mx.nd.load("vgg19.params")

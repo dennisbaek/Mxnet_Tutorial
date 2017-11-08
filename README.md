@@ -213,11 +213,11 @@ print(mx.asnumpy(out))
 
 >## ***Development environment***
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 
-* python version(`3.6.2`) : `anaconda3 4.4.0` 
+* python version(`3.6.1`) : `anaconda3 4.4.0` 
 * IDE : `pycharm Community Edition 2017.2.2 or visual studio code`
     
 >## ***Dependencies*** 
-* mxnet-0.12.0
+* mxnet-0.12.1
 * numpy-1.12.1, matplotlib-2.0.2 , tensorboard-1.0.0a7(linux) , graphviz -> (`Visualization`)
 * tqdm -> (`Extensible Progress Meter`)
 * opencv-3.3.0.10 , struct , gzip , os , glob , threading -> (`Data preprocessing`)
