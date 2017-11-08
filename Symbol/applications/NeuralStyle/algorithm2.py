@@ -1,5 +1,8 @@
 #algorithm2 - A version that does not use 'for statement' to get 'style loss'.
 import mxnet as mx
+import urllib
+import os
+
 
 def VGG19(image):
 
@@ -176,7 +179,16 @@ def algorithm(content_a=1, style_b=1, content_image=None, style_image=None, nois
     graph.view()
 
     #(5) How to get pretrained model from mxnet 'symbol' - VGG19
-    pretrained = mx.nd.load("vgg19.params")
+    if os.path.exists("vgg19.params"):
+        print("vgg19.params exists")
+        pretrained = mx.nd.load("vgg19.params")
+    else:
+        print("vgg19.params downloading")
+        url="http://data.dmlc.ml/models/imagenet/vgg/vgg19-0000.params"
+        urllib.request.urlretrieve(url,"vgg19.params")
+        print("vgg19.params downloading completed")
+        pretrained = mx.nd.load("vgg19.params")
+
     for name in arg_names:
         if name == "content_" or name == "style_" or name=="noise_":
              continue

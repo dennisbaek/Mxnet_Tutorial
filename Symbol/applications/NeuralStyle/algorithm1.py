@@ -1,5 +1,7 @@
 #algorithm1 - A version that uses 'for statement' to get 'style loss'.
 import mxnet as mx
+import urllib
+import os
 
 def VGG19(image):
 
@@ -115,8 +117,9 @@ def algorithm(content_a=1, style_b=1, content_image=None, style_image=None, nois
         # gram_matrix
         n = mx.sym.dot(n, n, transpose_a=False, transpose_b=True)  # (filter, filter)
         s = mx.sym.dot(s, s, transpose_a=False, transpose_b=True)  # (filter, filter)'''
+
         # sym is not supporting the += operator
-        style_loss =style_loss + mx.sym.mean((mx.sym.square(n-s)/(4 * N * M))*0.2) # nd.mean((filter,))
+        style_loss = style_loss + mx.sym.mean((mx.sym.square(n-s)/(4 * N * M))*0.2) # nd.mean((filter,))
         #style_loss = style_loss + mx.sym.mean((mx.sym.square(n-s)/(4 * (N*N) * (M*M)))*0.2) # nd.mean((filter,))
 
     total_loss=mx.sym.MakeLoss(data=(content_a*content_loss+style_b*style_loss),grad_scale=1)
@@ -126,7 +129,15 @@ def algorithm(content_a=1, style_b=1, content_image=None, style_image=None, nois
     graph.view()
 
     #(5) How to get pretrained model from mxnet 'symbol' - VGG19
-    pretrained = mx.nd.load("vgg19.params")
+    if os.path.exists("vgg19.params"):
+        print("vgg19.params exists")
+        pretrained = mx.nd.load("vgg19.params")
+    else:
+        print("vgg19.params downloading")
+        url="http://data.dmlc.ml/models/imagenet/vgg/vgg19-0000.params"
+        urllib.request.urlretrieve(url,"vgg19.params")
+        print("vgg19.params downloading completed")
+        pretrained = mx.nd.load("vgg19.params")
 
     for name in arg_names:
         if name == "content_" or name == "style_" or name=="noise_":
