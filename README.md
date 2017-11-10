@@ -225,9 +225,6 @@ print(mx.asnumpy(out))
 
     * [***Generative Adversarial Networks Targeting with CIFAR10 , MNIST***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_target_with_Gluon)
 
-    * I plan to continue various projects in the future.!!!!!
-
-
 >## ***Development environment***
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 
 * python version(`3.6.1`) : `anaconda3 4.4.0` 
