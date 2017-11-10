@@ -211,7 +211,7 @@ print(mx.asnumpy(out))
 
     * [***Predicting lotto numbers in regression analysis***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_lotto_numbers_in_regression_analysis_using_Gluon)
 
-    * [***Neural Style using NDArray.API-ongoing***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/NeuralStyle)
+    * [***Neural Style using NDArray.API***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/NeuralStyle)
         ```cmd
         To configure a network of flexible structure, You should be able to set the object you want to differentiate. - See the code for more information!!!
         ```
