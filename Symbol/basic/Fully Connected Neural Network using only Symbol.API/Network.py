@@ -18,21 +18,20 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
 
     '''data loading referenced by Data Loading API '''
     train_iter = mx.io.NDArrayIter(data={'data' : to2d(train_img)},label={'label' : train_lbl}, batch_size=batch_size, shuffle=True) #training data
-    test_iter   = mx.io.NDArrayIter(data={'data' : to2d(test_img)}, label={'label' : test_lbl}) #test data
+    test_iter  = mx.io.NDArrayIter(data={'data' : to2d(test_img)}, label={'label' : test_lbl}, batch_size=batch_size) #test data
 
     '''neural network'''
     data = mx.sym.Variable('data')
     label = mx.sym.Variable('label')
 
     with mx.name.Prefix("FNN_"):
-        # first_hidden_layer
-        affine1 = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=10)
-        hidden1 = mx.sym.Activation(data=affine1, name='sigmoid1', act_type="relu")
-        # two_hidden_layer
-        affine2 = mx.sym.FullyConnected(data=hidden1, name='fc2', num_hidden=100)
-        hidden2 = mx.sym.Activation(data=affine2, name='sigmoid2', act_type="relu")
+
+        # hidden_layer
+        affine = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=100)
+        hidden = mx.sym.Activation(data=affine, name='relu', act_type="relu")
+
         # output_layer
-        output_affine = mx.sym.FullyConnected(data=hidden2, name='fc3', num_hidden=10)
+        output_affine = mx.sym.FullyConnected(data=hidden, name='fc2', num_hidden=10)
 
     output=mx.sym.SoftmaxOutput(data=output_affine,label=label)
 
@@ -72,27 +71,32 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
         train_iter.reset()
         for batch in train_iter:
 
-            arg_dict["data"] = batch.data[0].as_in_context(ctx)
-            arg_dict["label"] = batch.label[0].as_in_context(ctx)
-            network.forward(is_train=True)
+            arg_dict["data"][:] = batch.data[0] # Note the [:]. This sets the contents of the array instead of setting the array to a new value instead of overwriting the variable.
+            arg_dict["label"][:] = batch.label[0]
+            network.forward()
             network.backward()
 
             for j,name in enumerate(arg_names[1:-1]):
                 optimizer.update(0, arg_dict[name] , grad_dict[name] , state[j])
 
+        print(grad_dict['FNN_fc2_bias'])
         result = network.outputs[0].argmax(axis=1)
         print('Test batch accuracy : {}%'.format((float(sum(batch.label[0].asnumpy() == result.asnumpy())) / len(result.asnumpy()))*100))
+
+        if not os.path.exists("weights"):
+            os.makedirs("weights")
+
     print("#Optimization complete\n")
 
     #test
     for batch in test_iter:
-        arg_dict["data"] = batch.data[0].as_in_context(ctx)
-        arg_dict["label"] = batch.label[0].as_in_context(ctx)
+        arg_dict["data"][:] = batch.data[0].as_in_context(ctx)
+        arg_dict["label"][:] = batch.label[0].as_in_context(ctx)
         network.forward(is_train=True)
 
     result = network.outputs[0].argmax(axis=1)
     print("###########################")
-    print('Test batch accuracy : {}%'.format((float(sum(batch.label[0].asnumpy() == result.asnumpy())) / len(result)) * 100))
+    print('Test batch accuracy : {}%'.format((float(sum(batch.label[0].asnumpy() == result.asnumpy())) / len(result.asnumpy())) * 100))
 
 if __name__ == "__main__":
     print("NeuralNet_starting in main")
