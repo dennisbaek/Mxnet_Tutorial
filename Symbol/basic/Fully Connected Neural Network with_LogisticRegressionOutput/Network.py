@@ -38,19 +38,20 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
     data = mx.sym.Variable('data')
     label = mx.sym.Variable('label')
 
-    # first_hidden_layer
-    affine1 = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=50)
-    hidden1 = mx.sym.Activation(data=affine1, name='sigmoid1', act_type="sigmoid")
+    with mx.name.Prefix("FNN_"):
+        # first_hidden_layer
+        affine1 = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=50)
+        hidden1 = mx.sym.Activation(data=affine1, name='sigmoid1', act_type="sigmoid")
 
-    # two_hidden_layer
-    affine2 = mx.sym.FullyConnected(data=hidden1, name='fc2', num_hidden=50)
-    hidden2 = mx.sym.Activation(data=affine2, name='sigmoid2', act_type="sigmoid")
+        # two_hidden_layer
+        affine2 = mx.sym.FullyConnected(data=hidden1, name='fc2', num_hidden=50)
+        hidden2 = mx.sym.Activation(data=affine2, name='sigmoid2', act_type="sigmoid")
 
-    # output_layer
-    output_affine = mx.sym.FullyConnected(data=hidden2, name='fc3', num_hidden=10)
+        # output_layer
+        output_affine = mx.sym.FullyConnected(data=hidden2, name='fc3', num_hidden=10)
 
-    #The soft max label is compatible with both xxxx_lbl and xxxx_lbl_one_hot.
-    #output=mx.sym.SoftmaxOutput(data=output_affine,label=label)
+        #The soft max label is compatible with both xxxx_lbl and xxxx_lbl_one_hot.
+        #output=mx.sym.SoftmaxOutput(data=output_affine,label=label)
 
     #LogisticRegressionOutput contains a sigmoid function internally. and It should be executed with xxxx_lbl_one_hot data.
     output = mx.sym.LogisticRegressionOutput(data=output_affine ,label=label)

@@ -7,122 +7,122 @@
     }, 
     {
       "op": "null", 
-      "name": "encode1_weight", 
-      "attr": {"num_hidden": "100"}, 
+      "name": "Autoencoder_encode1_weight", 
+      "attrs": {"num_hidden": "100"}, 
       "inputs": []
     }, 
     {
       "op": "null", 
-      "name": "encode1_bias", 
-      "attr": {"num_hidden": "100"}, 
+      "name": "Autoencoder_encode1_bias", 
+      "attrs": {"num_hidden": "100"}, 
       "inputs": []
     }, 
     {
       "op": "FullyConnected", 
-      "name": "encode1", 
-      "attr": {"num_hidden": "100"}, 
+      "name": "Autoencoder_encode1", 
+      "attrs": {"num_hidden": "100"}, 
       "inputs": [[0, 0, 0], [1, 0, 0], [2, 0, 0]]
     }, 
     {
       "op": "Activation", 
-      "name": "sigmoid1", 
-      "attr": {"act_type": "sigmoid"}, 
+      "name": "Autoencoder_sigmoid1", 
+      "attrs": {"act_type": "sigmoid"}, 
       "inputs": [[3, 0, 0]]
     }, 
     {
       "op": "null", 
-      "name": "encode2_weight", 
-      "attr": {"num_hidden": "50"}, 
+      "name": "Autoencoder_encode2_weight", 
+      "attrs": {"num_hidden": "50"}, 
       "inputs": []
     }, 
     {
       "op": "null", 
-      "name": "encode2_bias", 
-      "attr": {"num_hidden": "50"}, 
+      "name": "Autoencoder_encode2_bias", 
+      "attrs": {"num_hidden": "50"}, 
       "inputs": []
     }, 
     {
       "op": "FullyConnected", 
-      "name": "encode2", 
-      "attr": {"num_hidden": "50"}, 
+      "name": "Autoencoder_encode2", 
+      "attrs": {"num_hidden": "50"}, 
       "inputs": [[4, 0, 0], [5, 0, 0], [6, 0, 0]]
     }, 
     {
       "op": "Activation", 
-      "name": "sigmoid2", 
-      "attr": {"act_type": "sigmoid"}, 
+      "name": "Autoencoder_sigmoid2", 
+      "attrs": {"act_type": "sigmoid"}, 
       "inputs": [[7, 0, 0]]
     }, 
     {
       "op": "null", 
-      "name": "decode1_weight", 
-      "attr": {"num_hidden": "50"}, 
+      "name": "Autoencoder_decode1_weight", 
+      "attrs": {"num_hidden": "50"}, 
       "inputs": []
     }, 
     {
       "op": "null", 
-      "name": "decode1_bias", 
-      "attr": {"num_hidden": "50"}, 
+      "name": "Autoencoder_decode1_bias", 
+      "attrs": {"num_hidden": "50"}, 
       "inputs": []
     }, 
     {
       "op": "FullyConnected", 
-      "name": "decode1", 
-      "attr": {"num_hidden": "50"}, 
+      "name": "Autoencoder_decode1", 
+      "attrs": {"num_hidden": "50"}, 
       "inputs": [[8, 0, 0], [9, 0, 0], [10, 0, 0]]
     }, 
     {
       "op": "Activation", 
-      "name": "sigmoid3", 
-      "attr": {"act_type": "sigmoid"}, 
+      "name": "Autoencoder_sigmoid3", 
+      "attrs": {"act_type": "sigmoid"}, 
       "inputs": [[11, 0, 0]]
     }, 
     {
       "op": "null", 
-      "name": "decode2_weight", 
-      "attr": {"num_hidden": "100"}, 
+      "name": "Autoencoder_decode2_weight", 
+      "attrs": {"num_hidden": "100"}, 
       "inputs": []
     }, 
     {
       "op": "null", 
-      "name": "decode2_bias", 
-      "attr": {"num_hidden": "100"}, 
+      "name": "Autoencoder_decode2_bias", 
+      "attrs": {"num_hidden": "100"}, 
       "inputs": []
     }, 
     {
       "op": "FullyConnected", 
-      "name": "decode2", 
-      "attr": {"num_hidden": "100"}, 
+      "name": "Autoencoder_decode2", 
+      "attrs": {"num_hidden": "100"}, 
       "inputs": [[12, 0, 0], [13, 0, 0], [14, 0, 0]]
     }, 
     {
       "op": "Activation", 
-      "name": "sigmoid4", 
-      "attr": {"act_type": "sigmoid"}, 
+      "name": "Autoencoder_sigmoid4", 
+      "attrs": {"act_type": "sigmoid"}, 
       "inputs": [[15, 0, 0]]
     }, 
     {
       "op": "null", 
-      "name": "result_weight", 
-      "attr": {"num_hidden": "784"}, 
+      "name": "Autoencoder_result_weight", 
+      "attrs": {"num_hidden": "784"}, 
       "inputs": []
     }, 
     {
       "op": "null", 
-      "name": "result_bias", 
-      "attr": {"num_hidden": "784"}, 
+      "name": "Autoencoder_result_bias", 
+      "attrs": {"num_hidden": "784"}, 
       "inputs": []
     }, 
     {
       "op": "FullyConnected", 
-      "name": "result", 
-      "attr": {"num_hidden": "784"}, 
+      "name": "Autoencoder_result", 
+      "attrs": {"num_hidden": "784"}, 
       "inputs": [[16, 0, 0], [17, 0, 0], [18, 0, 0]]
     }, 
     {
       "op": "Activation", 
-      "name": "sigmoid5", 
-      "attr": {"act_type": "sigmoid"}, 
+      "name": "Autoencoder_sigmoid5", 
+      "attrs": {"act_type": "sigmoid"}, 
       "inputs": [[19, 0, 0]]
     }, 
     {
@@ -177,5 +177,5 @@
     23
   ], 
   "heads": [[22, 0, 0]], 
-  "attrs": {"mxnet_version": ["int", 1100]}
+  "attrs": {"mxnet_version": ["int", 1201]}
 }

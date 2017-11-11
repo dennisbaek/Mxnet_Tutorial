@@ -43,25 +43,26 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
     input = mx.sym.Variable('input')
     output= mx.sym.Variable('input_')
 
-    # encode
-    affine1 = mx.sym.FullyConnected(data=input,name='encode1',num_hidden=100)
-    encode1 = mx.sym.Activation(data=affine1, name='sigmoid1', act_type="sigmoid")
+    with mx.name.Prefix("Autoencoder_"):
+        # encode
+        affine1 = mx.sym.FullyConnected(data=input,name='encode1',num_hidden=100)
+        encode1 = mx.sym.Activation(data=affine1, name='sigmoid1', act_type="sigmoid")
 
-    # encode
-    affine2 = mx.sym.FullyConnected(data=encode1, name='encode2', num_hidden=50)
-    encode2 = mx.sym.Activation(data=affine2, name='sigmoid2', act_type="sigmoid")
+        # encode
+        affine2 = mx.sym.FullyConnected(data=encode1, name='encode2', num_hidden=50)
+        encode2 = mx.sym.Activation(data=affine2, name='sigmoid2', act_type="sigmoid")
 
-    # decode
-    affine3 = mx.sym.FullyConnected(data=encode2, name='decode1', num_hidden=50)
-    decode1 = mx.sym.Activation(data=affine3, name='sigmoid3', act_type="sigmoid")
+        # decode
+        affine3 = mx.sym.FullyConnected(data=encode2, name='decode1', num_hidden=50)
+        decode1 = mx.sym.Activation(data=affine3, name='sigmoid3', act_type="sigmoid")
 
-    # decode
-    affine4 = mx.sym.FullyConnected(data=decode1,name='decode2',num_hidden=100)
-    decode2 = mx.sym.Activation(data=affine4, name='sigmoid4', act_type="sigmoid")
+        # decode
+        affine4 = mx.sym.FullyConnected(data=decode1,name='decode2',num_hidden=100)
+        decode2 = mx.sym.Activation(data=affine4, name='sigmoid4', act_type="sigmoid")
 
-    # output
-    result = mx.sym.FullyConnected(data=decode2, name='result', num_hidden=784)
-    result = mx.sym.Activation(data=result, name='sigmoid5', act_type="sigmoid")
+        # output
+        result = mx.sym.FullyConnected(data=decode2, name='result', num_hidden=784)
+        result = mx.sym.Activation(data=result, name='sigmoid5', act_type="sigmoid")
 
     #LogisticRegressionOutput contains a sigmoid function internally. and It should be executed with xxxx_lbl_one_hot data.
     result=mx.sym.LinearRegressionOutput(data=result ,label=output)
@@ -144,6 +145,7 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
         #total_batch_number = np.ceil(len(train_img) / (batch_size * 1.0))
         #temp=0
         for batch in train_iter:
+
             mod.forward(batch, is_train=True)
             mod.backward()
             mod.update()

@@ -121,7 +121,6 @@ def FNN(epoch = 100 , batch_size=128, save_period=10 , load_period=100 ,optimize
             loss.backward()
             trainer.step(batch_size,ignore_stale_grad=True)
 
-
         print(" epoch : {} , last batch cost : {}".format(i,cost))
 
         #weight_save
