@@ -37,6 +37,11 @@ print(mx.asnumpy(out))
     * [***Very flexible Fully Connected Neural Network using Symbol.API , Dictionary parameter : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Very%20flexible%20Fully%20Connected%20Neural%20Network1)
 
     * [***Very flexible Fully Connected Neural Network using Symbol.API , List parameter : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Very%20flexible%20Fully%20Connected%20Neural%20Network2)
+    * [***Very flexible Autoencoder Neural Networks using Symbol.API , List parameter : Classifying the MNIST data***]()
+
+    * [***Very flexible Convolutional Neural Networks using Symbol.API , List parameter : Classifying the MNIST data***]()
+
+    * [***Very flexible Recurrent Neural Networks using Symbol.API , List parameter : Classifying the MNIST data***]()
 
 * ### ***Neural Networks basic with <Symbol.API + Module.API>***
 

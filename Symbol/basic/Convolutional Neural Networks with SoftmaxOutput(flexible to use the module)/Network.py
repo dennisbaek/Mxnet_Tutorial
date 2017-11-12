@@ -63,9 +63,8 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
 
     output=mx.sym.SoftmaxOutput(data=output_affine,label=label)
 
-    # We visualize the network structure with output size (the batch_size is ignored.)
     shape = {"data": (batch_size,1,28,28)}
-    graph=mx.viz.plot_network(symbol=output,shape=shape)#The diagram can be found on the Jupiter notebook.
+    graph=mx.viz.plot_network(symbol=output,shape=shape)
     if epoch==1:
         graph.view()
     print(output.list_arguments())

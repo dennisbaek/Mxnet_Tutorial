@@ -84,8 +84,8 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
     output = mx.sym.SoftmaxOutput(data=affine2, label=label, name='softmax')
 
 
-    graph=mx.viz.plot_network(symbol=output) #The diagram can be found on the Jupiter notebook.
-    if epoch==1:
+    graph=mx.viz.plot_network(symbol=output)
+    if epoch==1 and use_cudnn:
         graph.view()
     print(output.list_arguments())
 

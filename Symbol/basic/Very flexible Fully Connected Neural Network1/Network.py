@@ -43,13 +43,11 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
     arg_dict = dict(zip(arg_names, [mx.nd.random_normal(loc=0, scale=0.01, shape=shape, ctx=ctx) for shape in arg_shapes]))
     grad_dict= dict(zip(arg_names[1:-1], [mx.nd.zeros(shape, ctx=ctx) for shape in arg_shapes[1:-1]])) #Exclude input output
 
-    # We visualize the network structure with output size (the batch_size is ignored.)
     shape = {"data": (batch_size,784)}
-    graph=mx.viz.plot_network(symbol=output,shape=shape)#The diagram can be found on the Jupiter notebook.
+    graph=mx.viz.plot_network(symbol=output,shape=shape)
     if epoch==1:
         graph.view()
 
-    #(5) How to get pretrained model from mxnet 'symbol' - VGG19
     if os.path.exists("weights/MNIST_weights-{}.param".format(load_weights)):
         print("MNIST_weights-{}.param exists".format(load_weights))
         pretrained = mx.nd.load("weights/MNIST_weights-{}.param".format(load_weights))
@@ -100,7 +98,7 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
                 optimizer.update(0, arg_dict[name] , grad_dict[name] , state[j])
 
         result = network.outputs[0].argmax(axis=1)
-        print('Test batch accuracy : {}%'.format((float(sum(batch.label[0].asnumpy() == result.asnumpy())) / len(result.asnumpy()))*100))
+        print('Training batch accuracy : {}%'.format((float(sum(arg_dict["label"].asnumpy() == result.asnumpy())) / len(result.asnumpy()))*100))
 
         if not os.path.exists("weights"):
             os.makedirs("weights")
@@ -112,13 +110,13 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
 
     #test
     for batch in test_iter:
-        arg_dict["data"][:] = batch.data[0].as_in_context(ctx)
-        arg_dict["label"][:] = batch.label[0].as_in_context(ctx)
+        arg_dict["data"][:] = batch.data[0]
+        arg_dict["label"][:] = batch.label[0]
         network.forward(is_train=True)
 
     result = network.outputs[0].argmax(axis=1)
     print("###########################")
-    print('Test batch accuracy : {}%'.format((float(sum(batch.label[0].asnumpy() == result.asnumpy())) / len(result.asnumpy())) * 100))
+    print('Test batch accuracy : {}%'.format((float(sum(arg_dict["label"].asnumpy() == result.asnumpy())) / len(result.asnumpy())) * 100))
 
 if __name__ == "__main__":
     print("NeuralNet_starting in main")

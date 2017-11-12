@@ -12,9 +12,21 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="Network.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Network.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="88" column="34" lean-forward="true" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+              <folding>
+                <element signature="e#24#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -55,8 +67,8 @@
         <option value="$PROJECT_DIR$/EX.PY.py" />
         <option value="C:/WinPython-64bit-2.7.10.3/python-2.7.10.amd64/Lib/site-packages/mxnet-0.9.4-py2.7.egg/mxnet/rnn/rnn_cell.py" />
         <option value="$PROJECT_DIR$/data_download.py" />
-        <option value="$PROJECT_DIR$/Network.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Network.py" />
       </list>
     </option>
   </component>
@@ -81,26 +93,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Recurrent Neural Networks with SoftmaxOutput" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Recurrent Neural Networks with SoftmaxOutput" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="Recurrent Neural Networks with SoftmaxOutput" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Recurrent Neural Networks with SoftmaxOutput" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Recurrent Neural Networks + GRU with SoftmaxOutput" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -116,61 +125,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration default="false" name="data_download" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="rnn" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_download.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="rnn" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Network" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="rnn" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Network.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="EX.PY" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="EX.PY" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -186,7 +141,23 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <method />
+    </configuration>
+    <configuration name="Network" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rnn" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Network.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -284,20 +255,6 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python.data_download" />
-      <item index="1" class="java.lang.String" itemvalue="Python.main" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Network" />
-      <item index="3" class="java.lang.String" itemvalue="Python.EX.PY" />
-    </list>
-    <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.EX.PY" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Network" />
-        <item index="3" class="java.lang.String" itemvalue="Python.data_download" />
-      </list>
-    </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -317,6 +274,54 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+    <configuration name="data_download" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rnn" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_download.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rnn" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Python.data_download" />
+      <item index="1" class="java.lang.String" itemvalue="Python.main" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Network" />
+      <item index="3" class="java.lang.String" itemvalue="Python.EX.PY" />
+    </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.main" />
+        <item index="1" class="java.lang.String" itemvalue="Python.EX.PY" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Network" />
+        <item index="3" class="java.lang.String" itemvalue="Python.data_download" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -333,8 +338,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="323" y="130" width="1440" height="780" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06320225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06320225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25816023" sideWeight="0.17437325" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29144096" sideWeight="0.82562673" order="2" side_tool="false" content_ui="tabs" />
@@ -388,16 +394,6 @@
           <caret line="119" column="36" lean-forward="false" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -406,7 +402,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -414,7 +409,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1026">
           <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -424,16 +418,6 @@
           <caret line="119" column="36" lean-forward="false" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -442,7 +426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -450,7 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1311">
           <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -460,16 +442,6 @@
           <caret line="119" column="36" lean-forward="true" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -478,7 +450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -486,7 +457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1311">
           <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -496,16 +466,6 @@
           <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -514,7 +474,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -524,16 +483,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -544,16 +493,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -571,16 +510,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -598,16 +527,6 @@
           <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -625,16 +544,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -652,16 +561,6 @@
           <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -680,16 +579,6 @@
           <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -708,16 +597,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -737,16 +616,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -771,16 +640,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
@@ -808,7 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -816,26 +674,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
           <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="119" column="36" lean-forward="false" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
+        <state relative-caret-position="285">
+          <caret line="88" column="34" lean-forward="true" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
-            <marker date="1504064811410" expanded="true" signature="244:8091" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="4644:4813" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="5010:5137" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5148:5270" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5276:5362" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="5463:5782" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="6933:7253" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1504064811410" expanded="true" signature="7494:7629" ph="..." />
-            <marker date="1504064811410" expanded="true" signature="7634:7920" ph="'''...'''" />
-            <marker date="1504064811410" expanded="true" signature="8119:8232" ph="..." />
           </folding>
         </state>
       </provider>
