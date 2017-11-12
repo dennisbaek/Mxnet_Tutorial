@@ -32,14 +32,14 @@ print(mx.asnumpy(out))
 
 * ### ***Neural Networks basic with <Symbol.API + Optimizer Class>***
     ```python
-    The following code is the most basic mxnet 'symbolic programming' technique using only 'Symbol.API', 'Symbol.bind Function', and Optimizer classes. It is very flexible.
+    The following code is the most basic mxnet 'symbolic programming' technique using only 'Symbol.API', 'Symbol.bind Function', and Optimizer classes. It is very flexible. If you only understand the code below, you can implement whatever you want.
     ```
-    * [***Fully Connected Neural Network with SoftmaxOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20using%20only%20Symbol.API)
+    * [***Very flexible Fully Connected Neural Network using Symbol.API : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20using%20only%20Symbol.API)
 
 * ### ***Neural Networks basic with <Symbol.API + Module.API>***
 
     ```python
-    The following code is a high-level interface using 'Symbol.API' and 'Module.API'. There is a drawback that it is not flexible in network configuration.
+    The following code is a high-level interface using 'Symbol.API' and 'Module.API'. It is fairly easy and quick to implement a formalized neural network. However, if you are designing a flexible neural net, do not use it.
     ```
 
     * [***Fully Connected Neural Network with LogisticRegressionOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with_LogisticRegressionOutput)

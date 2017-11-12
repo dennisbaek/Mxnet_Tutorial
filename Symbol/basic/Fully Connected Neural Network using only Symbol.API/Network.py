@@ -39,7 +39,7 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
     arg_names = output.list_arguments()
     arg_shapes, output_shapes, aux_shapes = output.infer_shape(data=(batch_size,784))
 
-    # (2) Make space for 'argument'
+    # (2) Make space for 'argument' - mutable type - If it is declared as below, it is kept in memory.
     arg_dict = dict(zip(arg_names, [mx.nd.random_normal(loc=0, scale=0.01, shape=shape, ctx=ctx) for shape in arg_shapes]))
     grad_dict= dict(zip(arg_names[1:-1], [mx.nd.zeros(shape, ctx=ctx) for shape in arg_shapes[1:-1]])) #Exclude input output
 
@@ -84,8 +84,11 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
         print("epoch : {}".format(i))
         train_iter.reset()
         for batch in train_iter:
-
-            arg_dict["data"][:] = batch.data[0] # Note the [:]. This sets the contents of the array instead of setting the array to a new value instead of overwriting the variable.
+            '''
+            <very important>
+            # mean of [:]  : This sets the contents of the array instead of setting the array to a new value not overwriting the variable.
+            '''
+            arg_dict["data"][:] = batch.data[0]
             arg_dict["label"][:] = batch.label[0]
             network.forward()
             network.backward()
