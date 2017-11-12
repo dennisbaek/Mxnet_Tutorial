@@ -27,11 +27,11 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
     with mx.name.Prefix("FNN_"):
 
         # hidden_layer
-        affine = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=100)
-        hidden = mx.sym.Activation(data=affine, name='relu', act_type="relu")
+        affine1 = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=100)
+        hidden1 = mx.sym.Activation(data=affine1, name='relu1', act_type="relu")
 
         # output_layer
-        output_affine = mx.sym.FullyConnected(data=hidden, name='fc2', num_hidden=10)
+        output_affine = mx.sym.FullyConnected(data=hidden1, name='fc2', num_hidden=10)
 
     output=mx.sym.SoftmaxOutput(data=output_affine,label=label)
 
@@ -87,7 +87,10 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
             '''
             <very important>
             # mean of [:]  : This sets the contents of the array instead of setting the array to a new value not overwriting the variable.
+            # For more information, see reference
             '''
+            #batch.data[0].copyto(arg_dict["data"])
+            #batch.label[0].copyto(arg_dict["label"])
             arg_dict["data"][:] = batch.data[0]
             arg_dict["label"][:] = batch.label[0]
             network.forward()

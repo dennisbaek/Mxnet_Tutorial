@@ -34,7 +34,9 @@ print(mx.asnumpy(out))
     ```python
     The following code is the most basic mxnet 'symbolic programming' technique using only 'Symbol.API', 'Symbol.bind Function', and Optimizer classes. It is very flexible. If you only understand the code below, you can implement whatever you want.
     ```
-    * [***Very flexible Fully Connected Neural Network using Symbol.API : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20using%20only%20Symbol.API)
+    * [***Very flexible Fully Connected Neural Network using Symbol.API , Dictionary parameter : Classifying the MNIST data***]()
+
+    * [***Very flexible Fully Connected Neural Network using Symbol.API , List parameter : Classifying the MNIST data***]()
 
 * ### ***Neural Networks basic with <Symbol.API + Module.API>***
 
