@@ -49,6 +49,20 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
     if epoch==1:
         graph.view()
 
+    #(5) How to get pretrained model from mxnet 'symbol' - VGG19
+    if os.path.exists("weights/MNIST_weights-{}.param".format(load_weights)):
+        print("MNIST_weights-{}.param exists".format(load_weights))
+        pretrained = mx.nd.load("weights/MNIST_weights-{}.param".format(load_weights))
+
+        for name in arg_names:
+            if name == "data" or name == "label":
+                continue
+            else:
+                arg_dict[name] = pretrained[name]
+    else:
+        print("weight initialization")
+
+
     '''You only need to bind once.
     With bind, you can change the argument values of args and args_grad. The value of a list or dictionary is mutable.
     See the code below for an approach.'''
@@ -79,12 +93,14 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
             for j,name in enumerate(arg_names[1:-1]):
                 optimizer.update(0, arg_dict[name] , grad_dict[name] , state[j])
 
-        print(grad_dict['FNN_fc2_bias'])
         result = network.outputs[0].argmax(axis=1)
         print('Test batch accuracy : {}%'.format((float(sum(batch.label[0].asnumpy() == result.asnumpy())) / len(result.asnumpy()))*100))
 
         if not os.path.exists("weights"):
             os.makedirs("weights")
+
+        if i%save_period==0:
+            mx.nd.save("weights/MNIST_weights-{}.param".format(i),arg_dict)
 
     print("#Optimization complete\n")
 
