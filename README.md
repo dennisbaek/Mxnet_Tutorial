@@ -34,6 +34,8 @@ print(mx.asnumpy(out))
     ```python
     The following code is the most basic mxnet 'symbolic programming' technique using only 'Symbol.API', 'Symbol.bind Function', and Optimizer classes. It is very flexible. If you only understand the code below, you can implement whatever you want.
     ```
+    * [***K-means algorithm-ongoing***]()
+
     * [***Very flexible Fully Connected Neural Network using Symbol.API , Dictionary parameter : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Very%20flexible%20Fully%20Connected%20Neural%20Network1)
 
     * [***Very flexible Fully Connected Neural Network using Symbol.API , List parameter : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Very%20flexible%20Fully%20Connected%20Neural%20Network2)
@@ -162,6 +164,13 @@ print(mx.asnumpy(out))
     ```
 
     * #### The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
+
+        * [***K-means algorithm***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/k_means)
+            ```python
+            I implemented 'k-menas algorithm' in two ways for speed comparison.
+            1. 'kmeans_numpy.py' is implemented using mxnet-ndarray
+            2. 'kmeans.py' is implemented using numpy
+            ```
 
         * [***Multiclass logistic regression : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Multiclass_logistic_regression_with_NDArray)
 
