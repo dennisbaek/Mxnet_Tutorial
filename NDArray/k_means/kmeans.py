@@ -44,15 +44,16 @@ def K_means_Algorithm(epoch=100,point_numbers=2000,centroid_numbers=5,ctx=mx.gpu
         clustering = nd.argmin(distance,axis=0)
 
         # 3-step
-        new_centroid = [nd.equal(clustering,cn) for cn in range(centroid_numbers)]# (centroid_numbers,2)
-        for j,part_nc in enumerate(new_centroid):
+        #print(nd.where(nd.equal(clustering, 0),x=0,y=0))
+        centroid[:] = [nd.mean(np.take(dataset, nd.reshape(nd.where(nd.equal(clustering, cn)),(-1,)), axis=0),axis=0) for cn in range(centroid_numbers)]
+        '''for j,part_nc in enumerate(new_centroid):
             new_centroid_part = 0
             divide_count=0
             for k,part in enumerate(part_nc):
                 if part==1:
                     new_centroid_part+=dataset[k]
                     divide_count+=1
-            centroid[j][:]=nd.divide(new_centroid_part,divide_count)
+            centroid[j][:]=nd.divide(new_centroid_part,divide_count)'''
         print("epoch : {}".format(i+1))
 
     for i in range(centroid_numbers):
