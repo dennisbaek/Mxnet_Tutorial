@@ -168,8 +168,16 @@ print(mx.asnumpy(out))
         * [***K-means algorithm***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/k_means)
             ```python
             I implemented 'k-menas algorithm' in two ways for speed comparison.
+
             1. 'kmeans_numpy.py' is implemented using mxnet-ndarray
             2. 'kmeans.py' is implemented using numpy
+
+            Comparison between ndarray and numpy
+            -> As the number of data increases, ndarray is overwhelmingly faster than numpy.
+
+            Using ndarray only
+            Comparison between cpu and gpu
+            -> As the number of data increases, gpu-ndarray is overwhelmingly faster than cpu-ndarray.
             ```
 
         * [***Multiclass logistic regression : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Multiclass_logistic_regression_with_NDArray)
