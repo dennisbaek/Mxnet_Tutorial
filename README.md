@@ -34,7 +34,7 @@ print(mx.asnumpy(out))
     ```python
     The following code is the most basic mxnet 'symbolic programming' technique using only 'Symbol.API', 'Symbol.bind Function', and Optimizer classes. It is very flexible. If you only understand the code below, you can implement whatever you want.
     ```
-    * [***K-means algorithm-ongoing***]()
+    * [***K-means algorithm-ongoing***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/k_means)
 
     * [***Very flexible Fully Connected Neural Network using Symbol.API , Dictionary parameter : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Very%20flexible%20Fully%20Connected%20Neural%20Network1)
 
