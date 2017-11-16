@@ -34,8 +34,18 @@ print(mx.asnumpy(out))
     ```python
     The following code is the most basic mxnet 'symbolic programming' technique using only 'Symbol.API', 'Symbol.bind Function', and Optimizer classes. It is very flexible. If you only understand the code below, you can implement whatever you want.
     ```
-    * [***K-means algorithm-ongoing***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/k_means)
+    * [***K-means algorithm***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/k_means)
+        ```python
+        I implemented 'k-menas algorithm' for speed comparison.
 
+        1. 'kmeans.py' is implemented using partial symbol.API.(Why partial? Only the assignment part of k-means algorithm was implemented with symbol.API)
+
+        Comparison between symbol and ndarray(below 'NDArray.API' for more information)
+        -> As the number of data increases, symbol is a little faster than ndarray.
+
+        Comparison between cpu and gpu
+        -> As the number of data increases, gpu-symbol is overwhelmingly faster than cpu-symbol.
+        ```
     * [***Very flexible Fully Connected Neural Network using Symbol.API , Dictionary parameter : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Very%20flexible%20Fully%20Connected%20Neural%20Network1)
 
     * [***Very flexible Fully Connected Neural Network using Symbol.API , List parameter : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Very%20flexible%20Fully%20Connected%20Neural%20Network2)
