@@ -36,11 +36,11 @@ print(mx.asnumpy(out))
     ```
     * [***K-means algorithm***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/k_means)
         ```python
-        I implemented 'k-menas algorithm' for speed comparison.
+        I implemented 'k-means algorithm' for speed comparison.
 
         1. 'kmeans.py' is implemented using partial symbol.API.(Why partial? Only the assignment part of k-means algorithm was implemented with symbol.API)
 
-        Comparison between symbol and ndarray(below 'NDArray.API' for more information)
+        Comparison between symbol and ndarray(see below 'NDArray.API' for more information)
         -> As the number of data increases, symbol is a little faster than ndarray.
 
         Comparison between cpu and gpu
@@ -177,7 +177,7 @@ print(mx.asnumpy(out))
 
         * [***K-means algorithm***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/k_means)
             ```python
-            I implemented 'k-menas algorithm' in two ways for speed comparison.
+            I implemented 'k-means algorithm' in two ways for speed comparison.
 
             1. 'kmeans_numpy.py' is implemented using mxnet-ndarray
             2. 'kmeans.py' is implemented using numpy
@@ -219,6 +219,19 @@ print(mx.asnumpy(out))
 
     * #### The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
 
+        * [***K-means algorithm***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/k_means)
+            ```python
+            I implemented 'k-means algorithm' for speed comparison.
+
+            1. 'kmeans.py' is implemented using Gluon package.
+
+            Comparison between gluon and ndarray(see above 'NDArray.API' for more information)
+            -> As the number of data increases, Gluon is a little bit faster than ndarray.
+
+            Comparison between cpu and gpu
+            -> As the number of data increases, gpu-gluon is overwhelmingly faster than cpu-gluon.
+            ```
+
         * ***Using nn.Sequential when writing your `High-Level Code`***
 
             * [***Multiclass logistic regression : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Multiclass_logistic_regression_with_Gluon)
@@ -240,6 +253,9 @@ print(mx.asnumpy(out))
             * [***Convolution Neural Network with Block or HybridBlock : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Neural_Network_with_Block)
 
                 * [More information on `block` and `hybridblock`](http://thestraightdope.mxnet.io/chapter07_distributed-learning/hybridize.html) 
+                ```python
+                It is less flexible than Block in network configuration.
+                ```
         
 * ### ***Neural Networks Applications with <NDArray.API + Gluon Package + Autograd Package>***
 

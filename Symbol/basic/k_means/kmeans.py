@@ -12,7 +12,7 @@ def init_kmeans(dataset):
 
     df = pd.DataFrame({"x": [d[0] for d in dataset] , "y": [d[1] for d in dataset]})
     sns.lmplot("x","y" , data=df , fit_reg=False , size=10)
-    plt.savefig("K means Algorithm init using mxnet.png")
+    plt.savefig("K means Algorithm init using mxnet symbol.png")
 
 def completed_kmeans(dataset, clustering):
 
@@ -25,7 +25,7 @@ def completed_kmeans(dataset, clustering):
 
     df = pd.DataFrame(data)
     sns.lmplot("x", "y", data=df, fit_reg=False, size=10 , hue="cluster")
-    plt.savefig("K means Algorithm completed using mxnet.png")
+    plt.savefig("K means Algorithm completed using mxnet symbol.png")
     plt.show()
 
 def K_means_assignment():

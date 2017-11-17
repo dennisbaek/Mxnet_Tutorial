@@ -177,7 +177,8 @@ def CNN(epoch = 100 , batch_size=128, save_period=10 , load_period=100 ,optimize
             net.add(gluon.nn.Dense(10,use_bias=True))
 
     net.hybridize() # hybridize!!!! for faster learning - only for hybrid
-    
+
+    net.weight.data()
     #weights initialization
     if os.path.exists(path):
         print("loading weights")
