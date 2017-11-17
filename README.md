@@ -7,11 +7,11 @@
 <image src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/image/banner.png" width=800 height=200></image>
 >## ***Introduction*** 
 *   
-    It is a tutorial that can be helpful to those `who are new to the MXNET deep-learning framework`
+    It is a tutorial that can be helpful to those `who are new to the MXNET Deep-Learning Framework`
 >## ***Official Homepage Tutorial***
 *
     The following LINK is a tutorial on the MXNET  official homepage
-    * `Link` : [mxnet homapage tutorials](http://mxnet.io/tutorials/index.html)
+    * `Link` : [mxnet homapage tutorials](http://mxnet.incubator.apache.org/tutorials/index.html)
 >## ***Let's begin with***
 * Required library and very simple code
 ```python
@@ -251,11 +251,10 @@ print(mx.asnumpy(out))
         * ***Using Block when Designing a `Custom Layer` - Flexible use of Gluon***
 
             * [***Convolution Neural Network with Block or HybridBlock : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Neural_Network_with_Block)
-
-                * [More information on `block` and `hybridblock`](http://thestraightdope.mxnet.io/chapter07_distributed-learning/hybridize.html) 
                 ```python
                 It is less flexible than Block in network configuration.
                 ```
+                * [More information on `block` and `hybridblock`](http://gluon.mxnet.io/chapter07_distributed-learning/hybridize.html) 
         
 * ### ***Neural Networks Applications with <NDArray.API + Gluon Package + Autograd Package>***
 
@@ -289,5 +288,8 @@ print(mx.asnumpy(out))
 * logging -> (`Observation during learning`)
 * argparse -> (`Command line input from user`)
 * urllib , requests -> (`Web crawling`) 
+
 >## ***Author*** 
-[JONGGON KIM](https://github.com/JONGGON)
+[JONGGON KIM GitHub](https://github.com/JONGGON)
+ 
+rlawhdrhs27@gmail.com
