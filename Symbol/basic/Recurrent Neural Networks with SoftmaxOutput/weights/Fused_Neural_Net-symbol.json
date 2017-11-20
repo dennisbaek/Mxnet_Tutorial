@@ -8,19 +8,19 @@
     {
       "op": "transpose", 
       "name": "transpose0", 
-      "attr": {"axes": "(1, 0, 2)"}, 
+      "attrs": {"axes": "(1, 0, 2)"}, 
       "inputs": [[0, 0, 0]]
     }, 
     {
       "op": "null", 
       "name": "rnn_0parameters", 
-      "attr": {"__init__": "[\"fusedrnn\", {\"mode\": \"rnn_tanh\", \"num_hidden\": 100, \"bidirectional\": false, \"forget_bias\": 1.0, \"init\": null, \"num_layers\": 1}]"}, 
+      "attrs": {"__init__": "[\"fusedrnn\", {\"init\": null, \"num_hidden\": 100, \"num_layers\": 1, \"mode\": \"rnn_tanh\", \"bidirectional\": false, \"forget_bias\": 1.0}]"}, 
       "inputs": []
     }, 
     {
       "op": "_zeros", 
       "name": "rnn_0begin_state_0", 
-      "attr": {
+      "attrs": {
         "__layout__": "LNC", 
         "dtype": "float32", 
         "shape": "(1, 0, 100)"
@@ -30,7 +30,7 @@
     {
       "op": "RNN", 
       "name": "rnn_0rnn", 
-      "attr": {
+      "attrs": {
         "__layout__": "LNC", 
         "bidirectional": "False", 
         "mode": "rnn_tanh", 
@@ -44,7 +44,7 @@
     {
       "op": "SliceChannel", 
       "name": "split0", 
-      "attr": {
+      "attrs": {
         "axis": "0", 
         "num_outputs": "28", 
         "squeeze_axis": "1"
@@ -54,43 +54,43 @@
     {
       "op": "null", 
       "name": "affine1_weight", 
-      "attr": {"num_hidden": "100"}, 
+      "attrs": {"num_hidden": "100"}, 
       "inputs": []
     }, 
     {
       "op": "null", 
       "name": "affine1_bias", 
-      "attr": {"num_hidden": "100"}, 
+      "attrs": {"num_hidden": "100"}, 
       "inputs": []
     }, 
     {
       "op": "FullyConnected", 
       "name": "affine1", 
-      "attr": {"num_hidden": "100"}, 
+      "attrs": {"num_hidden": "100"}, 
       "inputs": [[5, 27, 0], [6, 0, 0], [7, 0, 0]]
     }, 
     {
       "op": "Activation", 
       "name": "sigmoid1", 
-      "attr": {"act_type": "sigmoid"}, 
+      "attrs": {"act_type": "sigmoid"}, 
       "inputs": [[8, 0, 0]]
     }, 
     {
       "op": "null", 
       "name": "affine2_weight", 
-      "attr": {"num_hidden": "10"}, 
+      "attrs": {"num_hidden": "10"}, 
       "inputs": []
     }, 
     {
       "op": "null", 
       "name": "affine2_bias", 
-      "attr": {"num_hidden": "10"}, 
+      "attrs": {"num_hidden": "10"}, 
       "inputs": []
     }, 
     {
       "op": "FullyConnected", 
       "name": "affine2", 
-      "attr": {"num_hidden": "10"}, 
+      "attrs": {"num_hidden": "10"}, 
       "inputs": [[9, 0, 0], [10, 0, 0], [11, 0, 0]]
     }, 
     {
@@ -124,5 +124,5 @@
     43
   ], 
   "heads": [[14, 0, 0]], 
-  "attrs": {"mxnet_version": ["int", 1100]}
+  "attrs": {"mxnet_version": ["int", 1201]}
 }

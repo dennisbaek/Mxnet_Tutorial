@@ -206,7 +206,7 @@ print(mx.asnumpy(out))
 
         * [***Convolution Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Autoencoder_Neural_Network_with_NDArray)
 
-        * [***Recurrent Neural Network : Classifying the MNIST and Fashion MNIST data - not yet***]()
+        * [***Recurrent Neural Network : Using the Fashion MNIST data-ongoing***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Recurrent_Neural_Network_with_NDArray)
 
 * ### ***Neural Networks With <Gluon Package + NDArray.API + Autograd Package>***
 
@@ -246,7 +246,7 @@ print(mx.asnumpy(out))
 
             * [***Convolution Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Autoencoder_Neural_Network_with_Gluon)
 
-            * [***Recurrent Neural Network : Classifying the MNIST and Fashion MNIST data - not yet***]()
+            * [***Recurrent Neural Network : Using the Stock dataset-not yet***]()
 
         * ***Using Block when Designing a `Custom Layer` - Flexible use of Gluon***
 

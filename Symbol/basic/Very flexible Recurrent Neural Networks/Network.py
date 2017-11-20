@@ -104,11 +104,13 @@ def NeuralNet(epoch,batch_size,save_period,load_weights,ctx=mx.gpu(0)):
         print("epoch : {}".format(i))
         train_iter.reset()
         for batch in train_iter:
+
             '''
             <very important>
             # mean of [:]  : This sets the contents of the array instead of setting the array to a new value not overwriting the variable.
             # For more information, see reference
             '''
+
             #batch.data[0].copyto(arg_dict["data"])
             #batch.label[0].copyto(arg_dict["label"])
             arg_dict["data"][:] = batch.data[0]

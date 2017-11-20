@@ -73,7 +73,6 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
             has the same structure as begin_state()
 
     '''
-
     #if you see the unroll function
     output, state= cell.unroll(length=time_step, inputs=data, merge_outputs=False, layout='TNC')
 
