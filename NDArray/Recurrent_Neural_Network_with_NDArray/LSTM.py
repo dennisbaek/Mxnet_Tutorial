@@ -48,7 +48,7 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
     #network parameter
     time_step = 28
     num_inputs = 28
-    num_hidden = 500
+    num_hidden = 200
     num_outputs = 10
 
     path = "weights/FashionMNIST_LSTMweights-{}".format(load_period)
@@ -115,7 +115,7 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
             g_t = nd.Activation(nd.FullyConnected(data=x,weight=wxhg,no_bias=True,num_hidden=num_hidden)+
                                 nd.FullyConnected(data=h_state,weight=whhg,no_bias=True,num_hidden=num_hidden)+bhg,act_type="tanh")
             c_state = nd.multiply(f_t, c_state) + nd.multiply(i_t,g_t)
-            h_state = nd.multiply(o_t,nd.tan(c_state))
+            h_state = nd.multiply(o_t,nd.tanh(c_state))
 
         output = nd.FullyConnected(data=h_state, weight=why, bias=by, num_hidden=num_outputs)
         output = nd.softmax(data=output)
@@ -155,7 +155,7 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
 
         test_accuracy = evaluate_accuracy(test_data, time_step, num_inputs, num_hidden, LSTM_Cell, ctx)
         print(" epoch : {} , last batch cost : {}".format(i,cost))
-        print("Test_acc : {}".format(test_accuracy))
+        print("Test_acc : {0:0.3f}%".format(test_accuracy * 100))
 
         #weight_save
         if i % save_period==0:
@@ -165,7 +165,7 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
             nd.save("weights/FashionMNIST_LSTMweights-{}".format(i),params)
 
     test_accuracy = evaluate_accuracy(test_data, time_step, num_inputs, num_hidden, LSTM_Cell, ctx)
-    print("Test_acc : {}".format(test_accuracy))
+    print("Test_acc : {0:0.3f}%".format(test_accuracy * 100))
     return "optimization completed"
 
 if __name__ == "__main__":
