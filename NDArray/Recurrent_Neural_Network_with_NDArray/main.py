@@ -1,5 +1,5 @@
 import mxnet as mx
-cell_type = "RNN"
+cell_type = "LSTM"
 
 #dataset = MNIST or CIFAR10 or FashionMNIST
 if cell_type=="RNN":

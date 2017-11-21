@@ -18,18 +18,20 @@ def FashionMNIST(batch_size):
     return train_data , test_data
 
 #evaluate the data
-def evaluate_accuracy(test_data, time_step, num_inputs, num_hidden, RNN_Cell, ctx):
+def evaluate_accuracy(test_data, time_step, num_inputs, num_hidden, LSTM_Cell, ctx):
 
     numerator = 0
     denominator = 0
 
     for data, label in test_data:
-        states = nd.zeros(shape=(data.shape[0], num_hidden), ctx=ctx)
+        h_state = nd.zeros(shape=(data.shape[0], num_hidden), ctx=ctx)
+        c_state = nd.zeros(shape=(data.shape[0], num_hidden), ctx=ctx)
         data = data.as_in_context(ctx)
         data = data.reshape(shape=(-1, time_step, num_inputs))
         data = nd.transpose(data=data, axes=(1, 0, 2))
         label = label.as_in_context(ctx)
-        outputs, states = RNN_Cell(data, states)
+
+        outputs, h_state, c_state = LSTM_Cell(data, h_state, c_state)
 
         predictions = nd.argmax(outputs, axis=1) #(batch_size,)
         predictions = predictions.asnumpy()
@@ -46,7 +48,7 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
     #network parameter
     time_step = 28
     num_inputs = 28
-    num_hidden = 100
+    num_hidden = 500
     num_outputs = 10
 
     path = "weights/FashionMNIST_LSTMweights-{}".format(load_period)
@@ -54,38 +56,70 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
     if os.path.exists(path):
 
         print("loading weights")
-        [wxh, whh, bh , why, by] = nd.load(path)  # weights load
-        wxh=wxh.as_in_context(ctx)
-        whh=whh.as_in_context(ctx)
-        bh=bh.as_in_context(ctx)
+        [wxhf, wxhi, wxho, wxhg, whhf, whhi, whho, whhg, bhf, bhi, bho, bhg, why, by] = nd.load(path)  # weights load
+        wxhf = wxhf.as_in_context(ctx)
+        wxhi = wxhi.as_in_context(ctx)
+        wxho = wxho.as_in_context(ctx)
+        wxhg = wxhg.as_in_context(ctx)
+
+        whhf = whhf.as_in_context(ctx)
+        whhi = whhi.as_in_context(ctx)
+        whho = whho.as_in_context(ctx)
+        whhg = whhg.as_in_context(ctx)
+
+        bhf = bhf.as_in_context(ctx)
+        bhi = bhi.as_in_context(ctx)
+        bho = bho.as_in_context(ctx)
+        bhg = bhg.as_in_context(ctx)
+
         why = why.as_in_context(ctx)
         by = by.as_in_context(ctx)
-        params = [wxh , whh , bh , why , by]
+        params = [wxhf , wxhi , wxho , wxhg, whhf, whhi, whho, whhg, bhf, bhi, bho, bhg, why , by]
 
     else:
         print("initializing weights")
-        wxh = nd.random_normal(loc=0,scale=0.1,shape=(num_hidden , num_inputs) , ctx=ctx)
-        whh = nd.random_normal(loc=0,scale=0.1,shape=(num_hidden , num_hidden) ,ctx=ctx)
-        bh = nd.random_normal(loc=0,scale=0.1,shape=(num_hidden,) , ctx=ctx)
+
+        wxhf = nd.random_normal(loc=0, scale=0.01, shape=(num_hidden, num_inputs) , ctx=ctx)
+        wxhi = nd.random_normal(loc=0, scale=0.01, shape=(num_hidden, num_inputs), ctx=ctx)
+        wxho = nd.random_normal(loc=0, scale=0.01, shape=(num_hidden, num_inputs), ctx=ctx)
+        wxhg = nd.random_normal(loc=0, scale=0.01, shape=(num_hidden, num_inputs), ctx=ctx)
+
+        whhf = nd.random_normal(loc=0, scale=0.01, shape=(num_hidden, num_hidden), ctx=ctx)
+        whhi = nd.random_normal(loc=0, scale=0.01, shape=(num_hidden, num_hidden) ,ctx=ctx)
+        whho = nd.random_normal(loc=0, scale=0.01, shape=(num_hidden, num_hidden), ctx=ctx)
+        whhg = nd.random_normal(loc=0, scale=0.01, shape=(num_hidden, num_hidden), ctx=ctx)
+
+        bhf = nd.random_normal(loc=0,scale=0.01,shape=(num_hidden,) , ctx=ctx)
+        bhi = nd.random_normal(loc=0,scale=0.01,shape=(num_hidden,) , ctx=ctx)
+        bho = nd.random_normal(loc=0,scale=0.01,shape=(num_hidden,) , ctx=ctx)
+        bhg = nd.random_normal(loc=0,scale=0.01,shape=(num_hidden,) , ctx=ctx)
+
         why = nd.random_normal(loc=0,scale=0.1,shape=(num_outputs , num_hidden),ctx=ctx)
         by = nd.random_normal(loc=0,scale=0.1,shape=(num_outputs,) , ctx=ctx)
 
-        params = [wxh , whh , bh , why , by]
+        params = [wxhf , wxhi , wxho , wxhg, whhf, whhi, whho, whhg, bhf, bhi, bho, bhg, why , by]
 
     # attach gradient!!!
     for param in params:
         param.attach_grad()
 
     #Fully Neural Network with 1 Hidden layer
-    def LSTM_Cell(input, state, act_type="tanh"):
+    def LSTM_Cell(input, h_state, c_state):
         for x in input:
-            argument1 = nd.FullyConnected(x, weight=wxh, num_hidden=num_hidden, no_bias=True)
-            argument2 = nd.FullyConnected(state, weight=whh, num_hidden=num_hidden, no_bias=True)
-            state = nd.Activation(argument1+argument2+bh, act_type=act_type)
+            f_t = nd.Activation(nd.FullyConnected(data=x,weight=wxhf,no_bias=True,num_hidden=num_hidden)+
+                                nd.FullyConnected(data=h_state,weight=whhf,no_bias=True,num_hidden=num_hidden)+bhf,act_type="sigmoid")
+            i_t = nd.Activation(nd.FullyConnected(data=x,weight=wxhi,no_bias=True,num_hidden=num_hidden)+
+                                nd.FullyConnected(data=h_state,weight=whhi,no_bias=True,num_hidden=num_hidden)+bhi,act_type="sigmoid")
+            o_t = nd.Activation(nd.FullyConnected(data=x,weight=wxho,no_bias=True,num_hidden=num_hidden)+
+                                nd.FullyConnected(data=h_state,weight=whho,no_bias=True,num_hidden=num_hidden)+bho,act_type="sigmoid")
+            g_t = nd.Activation(nd.FullyConnected(data=x,weight=wxhg,no_bias=True,num_hidden=num_hidden)+
+                                nd.FullyConnected(data=h_state,weight=whhg,no_bias=True,num_hidden=num_hidden)+bhg,act_type="tanh")
+            c_state = nd.multiply(f_t, c_state) + nd.multiply(i_t,g_t)
+            h_state = nd.multiply(o_t,nd.tan(c_state))
 
-        output = nd.FullyConnected(data=state, weight=why, bias=by, num_hidden=num_outputs)
+        output = nd.FullyConnected(data=h_state, weight=why, bias=by, num_hidden=num_outputs)
         output = nd.softmax(data=output)
-        return output , state
+        return output, h_state, c_state
 
     def cross_entropy(output, label):
         return - nd.sum(label * nd.log(output), axis=0 , exclude=True)
@@ -101,7 +135,9 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
 
         for data,label in train_data:
 
-            states = nd.zeros(shape=(data.shape[0], num_hidden), ctx=ctx)
+            h_state = nd.zeros(shape=(data.shape[0], num_hidden), ctx=ctx)
+            c_state = nd.zeros(shape=(data.shape[0], num_hidden), ctx=ctx)
+
             data = data.as_in_context(ctx)
             data = data.reshape(shape=(-1,time_step,num_inputs))
             data=nd.transpose(data=data,axes=(1,0,2))
@@ -109,7 +145,7 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
             label = nd.one_hot(label , num_outputs)
 
             with autograd.record():
-                outputs, states = LSTM_Cell(data,states)
+                outputs, h_state, c_state = LSTM_Cell(data, h_state , c_state)
                 loss = cross_entropy(outputs,label) # (batch_size,)
             loss.backward()
 
