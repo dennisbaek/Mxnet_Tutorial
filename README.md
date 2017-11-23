@@ -246,7 +246,10 @@ print(mx.asnumpy(out))
 
             * [***Convolution Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Autoencoder_Neural_Network_with_Gluon)
 
-            * [***Recurrent Neural Network : Using the Stock dataset-not yet***]()
+            * [***Recurrent Neural Network(RNN, LSTM, GRU) : Using the Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Recurrent_Neural_Network_with_Gluon)
+                ```python
+                'Recurrent Layers' in 'gluon' are the same as FusedRNNCell in 'symbol.API'. -> I will not use it because it is not flexible.
+                ```
 
         * ***Using Block when Designing a `Custom Layer` - Flexible use of Gluon***
 
@@ -273,6 +276,8 @@ print(mx.asnumpy(out))
     * [***Generative Adversarial Networks with CIFAR10 , FashionMNIST***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_with_Gluon)
 
     * [***Generative Adversarial Networks Targeting with CIFAR10 , MNIST***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_target_with_Gluon)
+
+    * [***Recurrent Neural Network : Using the Stock dataset-not yet***]()
 
 >## ***Development environment***
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 

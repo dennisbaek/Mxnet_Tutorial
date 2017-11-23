@@ -4,6 +4,7 @@ import numpy as np
 import data_download as dd
 import logging
 import os
+from tqdm import *
 logging.basicConfig(level=logging.INFO)
 
 def to2d(img):
@@ -123,7 +124,7 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
 
     null = mx.metric.CustomMetric(zero)
 
-    for epoch in range(1,epoch+1,1):
+    for epoch in tqdm(range(1,epoch+1,1)):
         print("epoch : {}".format(epoch))
         train_iter.reset()
         #total_batch_number = np.ceil(len(train_img) / (batch_size * 1.0))

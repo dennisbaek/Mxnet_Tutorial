@@ -8,12 +8,12 @@ logging.basicConfig(level=logging.INFO)
 def NeuralNet(epoch,batch_size,save_period,load_weights):
 
     time_step=28
-    rnn_hidden_number = 100
+    rnn_hidden_number = 200
     layer_number = 1
     fc_number=100
     class_number=10
     Dropout_rate=0.2
-    use_cudnn = True
+    use_cudnn = False
 
     '''
     load_data

@@ -1,7 +1,7 @@
 import mxnet as mx
-cell_type = "LSTM"
+cell_type = "GRU"
 
-#dataset = MNIST or CIFAR10 or FashionMNIST
+#dataset = FashionMNIST
 if cell_type=="RNN":
     import RNN
     RNN.RNN(epoch=10, batch_size=256 , save_period=10 , load_period=10 , learning_rate=0.001, ctx=mx.gpu(0))
