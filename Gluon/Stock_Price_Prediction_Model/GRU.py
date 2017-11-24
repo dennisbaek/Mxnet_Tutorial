@@ -76,8 +76,8 @@ def transform(data, label):
 def FashionMNIST(batch_size):
 
     #transform = lambda data, label: (data.astype(np.float32) / 255.0 , label) # data normalization
-    train_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST" , train = True , transform = transform) , batch_size , shuffle=True , last_batch="rollover") #Loads data from a dataset and returns mini-batches of data.
-    test_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST", train = False , transform = transform) ,128 , shuffle=False, last_batch="rollover") #Loads data from a dataset and returns mini-batches of data.
+    train_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST" , train = True , transform = transform) , batch_size , shuffle=True ) #Loads data from a dataset and returns mini-batches of data.
+    test_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST", train = False , transform = transform) ,128 , shuffle=False) #Loads data from a dataset and returns mini-batches of data.
     return train_data , test_data
 
 #evaluate the data
@@ -128,7 +128,7 @@ def GRU(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learnin
     for i in tqdm(range(1,epoch+1,1)):
 
         for data,label in train_data:
-            states = [nd.zeros(shape=(batch_size, num_hidden), ctx=ctx)]
+            states = [nd.zeros(shape=(data.shape[0], num_hidden), ctx=ctx)]
             data=data.as_in_context(ctx)
             data = data.reshape(shape=(-1,time_step,num_inputs))
             data= nd.transpose(data=data,axes=(1,0,2))

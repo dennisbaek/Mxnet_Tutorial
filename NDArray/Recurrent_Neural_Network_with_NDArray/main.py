@@ -1,5 +1,5 @@
 import mxnet as mx
-cell_type = "GRU"
+cell_type = "RNN"
 
 #dataset = FashionMNIST
 if cell_type=="RNN":
