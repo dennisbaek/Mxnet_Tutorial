@@ -34,8 +34,15 @@ class RNNCell(gluon.rnn.HybridRecurrentCell):
         self.wo = self.params.get('output_weights', shape=(output_size,hidden_size))
         self.bo = self.params.get('output_bias', shape=(output_size,))
 
+    '''
+    'i2h_weight', 'h2h_weight', 'i2h_bias', 'h2h_bias', 'wo', 'bo' as arguments in 'hybrid_forward'
+    contains important grammatical content of Python. 
+    (The contents of special methods such as __setattr__ and __getattr__ and 'keyword argument' such as '** kwargs' 
+    - refer to reference folder !!!)
+    '''
     def hybrid_forward(self, F, inputs, states, i2h_weight,
                        h2h_weight, i2h_bias, h2h_bias, wo, bo):
+
         prefix = 't%d_'%self._counter
         i2h = F.FullyConnected(data=inputs, weight=i2h_weight, bias=i2h_bias,
                                num_hidden=self._hidden_size,
