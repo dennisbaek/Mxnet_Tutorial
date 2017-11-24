@@ -55,6 +55,12 @@ print(mx.asnumpy(out))
 
     * [***Very flexible Recurrent Neural Networks using Symbol.API , Dictionary parameter : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Very%20flexible%20Recurrent%20Neural%20Networks)
 
+        * [***Modified Recurrent Neural Networks Cell by JG***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/CustomizedRNNCELL)
+            ```python
+            Please refer to this code when you want to freely transform 'shape' or 'structure' of 'RNN Cell', 'LSTM Cell', 'GRU Cell'. For example, it can be used to implement a transformation structure such as 'sequence to sequence'.
+            ```
+
+
 * ### ***Neural Networks basic with <Symbol.API + Module.API>***
 
     ```python
@@ -141,6 +147,7 @@ print(mx.asnumpy(out))
             * `tensorboard --logdir=tensorboard --logdir=./ --port=6006`
 
 * ### ***Neural Networks Applications***
+
     * [***Predicting lotto numbers in regression analysis***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/applications/Predicting%20lotto%20numbers%20in%20regression%20analysis%20using%20mxnet)
 
     * [***Generative Adversarial Networks with fullyConnected Neural Network : using MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/applications/Generative%20Adversarial%20Network%20with%20FullyConnected%20Neural%20Network)
@@ -154,8 +161,7 @@ print(mx.asnumpy(out))
         ```cmd
         to configure a network of flexible structure, use 'bind function' of Symbol.API and 'optimizer class'. - See the code for more information!!!
         ```
-
-* ### ***How to Create New Operators for Symbolic Operator? - Advanced***
+* ### ***How to Create New Operators for Symbolic? - Advanced***
     * #### [References Page : It is insufficient.](https://mxnet.incubator.apache.org/how_to/new_op.html) 
         
         * [***Customized LogisticRegressionOutput Layer***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/advanced/Fully%20Connected%20Neural%20Network%20with%20Custom%20LogisticRegressionOutput)
@@ -247,8 +253,10 @@ print(mx.asnumpy(out))
             * [***Convolution Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Autoencoder_Neural_Network_with_Gluon)
 
             * [***Recurrent Neural Network(RNN, LSTM, GRU) : Using the Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Recurrent_Neural_Network_with_Gluon)
+
+            * [***Recurrent Neural Network(RNN, LSTM, GRU) Using Recurrent Layers: Using the Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Recurrent_Layer_Neural_Network_with_Gluon)
                 ```python
-                'Recurrent Layers' in 'gluon' are the same as FusedRNNCell in 'symbol.API'. -> I will not use it because it is not flexible.
+                'Recurrent Layers' in 'gluon' are the same as FusedRNNCell in 'symbol.API'. -> it is not flexible.
                 ```
 
         * ***Using Block when Designing a `Custom Layer` - Flexible use of Gluon***
