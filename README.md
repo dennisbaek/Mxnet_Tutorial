@@ -284,7 +284,7 @@ print(mx.asnumpy(out))
 
     * [***Deep Convolution Generative Adversarial Networks Targeting Using CIFAR10 , MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_target_with_Gluon)
 
-    * [***Stock Price Prediction Model Using LSTM or GRU-ongoing***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Stock_Price_Prediction_Model)
+    * [***Predicting the yen exchange rate with LSTM or GRU ( Find 'xxxx' - JPY '100' is 'xxxx' KRW)-ongoing***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_the_yen_exchange_rate)
 
 >## ***Development environment***
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 

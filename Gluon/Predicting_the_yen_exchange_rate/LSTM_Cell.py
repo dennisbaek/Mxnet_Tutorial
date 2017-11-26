@@ -91,7 +91,7 @@ def evaluate_accuracy(test_data, time_step, num_inputs, num_hidden, model, ctx):
 
     return (numerator / denominator)
 
-def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learning_rate= 0.1, ctx=mx.gpu(0)):
+def exchange_rate_model(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learning_rate= 0.1, ctx=mx.gpu(0)):
 
     train_data , test_data = FashionMNIST(batch_size)
     #network parameter
@@ -100,7 +100,7 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
     num_hidden = 200
     num_outputs = 10
 
-    path = "weights/FashionMNIST_LSTMweights-{}.params".format(load_period)
+    path = "weights/LSTMCell_weights-{}.params".format(load_period)
     model=LSTMCell(num_hidden,num_outputs)
     model.hybridize()
 
@@ -143,13 +143,13 @@ def LSTM(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learni
                 os.makedirs("weights")
 
             print("saving weights")
-            model.save_params("weights/FashionMNIST_LSTMweights-{}.params".format(i))
+            model.save_params("weights/LSTMCell_weights-{}.params".format(i))
 
     test_accuracy = evaluate_accuracy(test_data, time_step, num_inputs, num_hidden, model, ctx)
     print("Test_acc : {0:0.3f}%".format(test_accuracy * 100))
 
 if __name__ == "__main__":
-    LSTM(epoch=100, batch_size=128, save_period=100 , load_period=100 ,learning_rate=0.001, ctx=mx.gpu(0))
+    exchange_rate_model(epoch=100, batch_size=128, save_period=100 , load_period=100 ,learning_rate=0.001, ctx=mx.gpu(0))
 else :
     print("Imported")
 
