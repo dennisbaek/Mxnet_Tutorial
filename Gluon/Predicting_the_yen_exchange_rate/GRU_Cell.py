@@ -3,8 +3,10 @@ import mxnet as mx
 import mxnet.ndarray as nd
 import mxnet.gluon as gluon
 import mxnet.autograd as autograd
+import data_preprocessing as dp
 from tqdm import *
 import os
+import matplotlib.pyplot as plt
 
 class GRUCell(gluon.rnn.HybridRecurrentCell):
 
@@ -69,51 +71,38 @@ class GRUCell(gluon.rnn.HybridRecurrentCell):
 
         return output, [next_h]
 
-def transform(data, label):
-    return data.astype(np.float32)/255, label.astype(np.float32)
+def JPY_to_KRW(time_step,half_month):
+    training = gluon.data.DataLoader(dp.JPY_to_KRW(train=True,time_step=time_step,half_month=half_month), batch_size=time_step) #Loads data from a dataset and returns mini-batches of data.
+    prediction = gluon.data.DataLoader(dp.JPY_to_KRW(train=False,time_step=time_step,half_month=half_month), batch_size=time_step)  # Loads data from a dataset and returns mini-batches of data.
+    return training, prediction
 
-#MNIST dataset
-def FashionMNIST(batch_size):
+def prediction(test_data, time_step, half_month, num_hidden, model, ctx):
 
-    #transform = lambda data, label: (data.astype(np.float32) / 255.0 , label) # data normalization
-    train_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST" , train = True , transform = transform) , batch_size , shuffle=True ) #Loads data from a dataset and returns mini-batches of data.
-    test_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST", train = False , transform = transform) ,128 , shuffle=False) #Loads data from a dataset and returns mini-batches of data.
-    return train_data , test_data
-
-#evaluate the data
-def evaluate_accuracy(test_data, time_step, num_inputs, num_hidden, model, ctx):
-
-    numerator = 0
-    denominator = 0
     for data, label in test_data:
-        states = [nd.zeros(shape=(data.shape[0], num_hidden), ctx=ctx)]
+        states = [nd.zeros(shape=(1, num_hidden), ctx=ctx)]
         data = data.as_in_context(ctx)
-        data = data.reshape(shape=(-1, time_step, num_inputs))
+        data = data.reshape(shape=(-1, time_step, half_month))
         data = nd.transpose(data=data, axes=(1, 0, 2))
-        label = label.as_in_context(ctx)
 
+        outputs_list=[]
         for j in range(time_step):
             outputs, states = model(data[j], states)  # outputs => (batch size, 10)
+            outputs_list.append(outputs)
 
-        predictions = nd.argmax(outputs, axis=1) #(batch_size,)
-        predictions = predictions.asnumpy()
-        label=label.asnumpy()
-        numerator += sum(predictions == label)
-        denominator += predictions.shape[0]
+    print(outputs_list)
 
-    return (numerator / denominator)
+def exchange_rate_model(epoch = 1000 ,time_step=4, half_month=14, save_period=1000, load_period=1000 ,learning_rate= 0.1, ctx=mx.gpu(0)):
 
-def exchange_rate_model(epoch = 100 , batch_size=100, save_period=100 , load_period=100 ,learning_rate= 0.1, ctx=mx.gpu(0)):
-
-    train_data , test_data = FashionMNIST(batch_size)
+    ''' 4 time x 2week -> prediction of 2 month'''
     #network parameter
-    time_step = 28
-    num_inputs = 28
-    num_hidden = 200
-    num_outputs = 10
+    time_step = time_step # 4time
+    half_month = half_month # 2week
+    num_hidden = 1000
+
+    training, test = JPY_to_KRW(time_step,half_month)
 
     path = "weights/GRUCell_weights-{}.params".format(load_period)
-    model=GRUCell(num_hidden,num_outputs)
+    model=GRUCell(num_hidden,half_month)
     model.hybridize()
 
     # weight initialization
@@ -126,26 +115,22 @@ def exchange_rate_model(epoch = 100 , batch_size=100, save_period=100 , load_per
 
     trainer = gluon.Trainer(model.collect_params(), "adam", {"learning_rate": learning_rate})
     for i in tqdm(range(1,epoch+1,1)):
-
-        for data,label in train_data:
-            states = [nd.zeros(shape=(data.shape[0], num_hidden), ctx=ctx)]
+        for data,label in training:
+            states = [nd.zeros(shape=(1, num_hidden), ctx=ctx)]
             data=data.as_in_context(ctx)
-            data = data.reshape(shape=(-1,time_step,num_inputs))
-            data= nd.transpose(data=data,axes=(1,0,2))
             label = label.as_in_context(ctx)
+            data = data.reshape(shape=(-1,time_step, half_month))
+            data= nd.transpose(data=data,axes=(1,0,2))
 
+            loss=0
             with autograd.record():
                 for j in range(time_step):
-                    outputs , states = model(data[j],states) #outputs => (batch size, 10)
-                loss = gluon.loss.SoftmaxCrossEntropyLoss()(outputs,label) # (batch_size,)
-
+                    outputs , states = model(data[j],states)
+                    loss = loss + gluon.loss.L2Loss()(outputs,label[j].reshape(shape=outputs.shape))
             loss.backward()
-            trainer.step(batch_size)
-
+            trainer.step(batch_size=1)
         cost = nd.mean(loss).asscalar()
-        test_accuracy = evaluate_accuracy(test_data, time_step, num_inputs, num_hidden, model, ctx)
         print(" epoch : {} , last batch cost : {}".format(i,cost))
-        print("Test_acc : {0:0.3f}%".format(test_accuracy * 100))
 
         #weight_save
         if i % save_period==0:
@@ -156,11 +141,10 @@ def exchange_rate_model(epoch = 100 , batch_size=100, save_period=100 , load_per
             print("saving weights")
             model.save_params("weights/GRUCell_weights-{}.params".format(i))
 
-    test_accuracy = evaluate_accuracy(test_data, time_step, num_inputs, num_hidden, model, ctx)
-    print("Test_acc : {0:0.3f}%".format(test_accuracy * 100))
+    prediction(test, time_step, half_month, num_hidden, model, ctx)
 
 if __name__ == "__main__":
-    exchange_rate_model(epoch=100, batch_size=128, save_period=100 , load_period=100 ,learning_rate=0.001, ctx=mx.gpu(0))
+    exchange_rate_model(epoch=1000, time_step=4, half_month=14, save_period=1000, load_period=1000, learning_rate=0.1, ctx=mx.gpu(0))
 else :
     print("Imported")
 
