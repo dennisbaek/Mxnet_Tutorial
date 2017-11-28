@@ -83,7 +83,7 @@ def exchange_rate_model(epoch = 100, time_step=4, half_month=14 ,save_period=100
     #network parameter
     time_step = time_step # 4time
     half_month = half_month # 2week
-    num_hidden = 1000
+    num_hidden = 500
 
     training, test = JPY_to_KRW(time_step,half_month)
 
@@ -97,7 +97,7 @@ def exchange_rate_model(epoch = 100, time_step=4, half_month=14 ,save_period=100
         model.load_params(filename=path ,ctx=ctx) # weights load
     else:
         print("initializing weights")
-        model.collect_params().initialize(mx.init.Normal(sigma=0.001),ctx=ctx) # weights initialization
+        model.collect_params().initialize(mx.init.Normal(sigma=0.0001),ctx=ctx) # weights initialization
 
     trainer = gluon.Trainer(model.collect_params(), "adam", {"learning_rate": learning_rate})
     for i in tqdm(range(1,epoch+1,1)):
