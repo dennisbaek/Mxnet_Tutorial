@@ -71,38 +71,41 @@ class GRUCell(gluon.rnn.HybridRecurrentCell):
 
         return output, [next_h]
 
-def JPY_to_KRW(time_step,half_month):
-    training = gluon.data.DataLoader(dp.JPY_to_KRW(train=True,time_step=time_step,half_month=half_month), batch_size=time_step) #Loads data from a dataset and returns mini-batches of data.
-    prediction = gluon.data.DataLoader(dp.JPY_to_KRW(train=False,time_step=time_step,half_month=half_month), batch_size=time_step)  # Loads data from a dataset and returns mini-batches of data.
+def JPY_to_KRW(time_step,day,normalization_factor):
+    training = gluon.data.DataLoader(dp.JPY_to_KRW(train=True,time_step=time_step, day=day,normalization_factor=normalization_factor), batch_size=time_step) #Loads data from a dataset and returns mini-batches of data.
+    prediction = gluon.data.DataLoader(dp.JPY_to_KRW(train=False,time_step=time_step, day=day,normalization_factor=normalization_factor), batch_size=time_step)  # Loads data from a dataset and returns mini-batches of data.
     return training, prediction
 
-def prediction(test_data, time_step, half_month, num_hidden, model, ctx):
+def prediction(test_data, time_step, day, normalization_factor, num_hidden, model, ctx):
 
     for data, label in test_data:
         states = [nd.zeros(shape=(1, num_hidden), ctx=ctx)]
         data = data.as_in_context(ctx)
-        data = data.reshape(shape=(-1, time_step, half_month))
+        data = data.reshape(shape=(-1, time_step, day))
         data = nd.transpose(data=data, axes=(1, 0, 2))
 
         outputs_list=[]
         for j in range(time_step):
-            outputs, states = model(data[j], states)  # outputs => (batch size, 10)
-            outputs_list.append(outputs)
+            outputs, states = model(data[j], states)
+            outputs_list.append(outputs.asnumpy())
 
-    print(outputs_list)
+    outputs_list=np.array(outputs_list)
+    outputs_list=np.reshape(outputs_list,(-1,))
+    print(np.shape(outputs_list))
 
-def exchange_rate_model(epoch = 1000 ,time_step=4, half_month=14, save_period=1000, load_period=1000 ,learning_rate= 0.1, ctx=mx.gpu(0)):
+def exchange_rate_model(epoch=1000, time_step=28, day=7, normalization_factor=100, save_period=1000 , load_period=1000 , learning_rate=0.001, ctx=mx.gpu(0)):
 
-    ''' 4 time x 2week -> prediction of 2 month'''
+    ''' 28 time x 7 day '''
     #network parameter
-    time_step = time_step # 4time
-    half_month = half_month # 2week
-    num_hidden = 200
+    normalization_factor=normalization_factor
+    time_step = time_step # 28  step
+    day = day # 1 day
+    num_hidden = 300
 
-    training, test = JPY_to_KRW(time_step,half_month)
+    training, test = JPY_to_KRW(time_step,day,normalization_factor)
 
     path = "weights/GRUCell_weights-{}.params".format(load_period)
-    model=GRUCell(num_hidden,half_month)
+    model=GRUCell(num_hidden,day)
     model.hybridize()
 
     # weight initialization
@@ -120,7 +123,7 @@ def exchange_rate_model(epoch = 1000 ,time_step=4, half_month=14, save_period=10
             states = [nd.zeros(shape=(1, num_hidden), ctx=ctx)]
             data=data.as_in_context(ctx)
             label = label.as_in_context(ctx)
-            data = data.reshape(shape=(-1,time_step, half_month))
+            data = data.reshape(shape=(-1,time_step, day))
             data= nd.transpose(data=data,axes=(1,0,2))
 
             loss=0
@@ -142,11 +145,11 @@ def exchange_rate_model(epoch = 1000 ,time_step=4, half_month=14, save_period=10
             print("saving weights")
             model.save_params("weights/GRUCell_weights-{}.params".format(i))
 
-    prediction(test, time_step, half_month, num_hidden, model, ctx)
+    prediction(test, time_step, day, normalization_factor ,num_hidden, model, ctx)
 
 if __name__ == "__main__":
-    exchange_rate_model(epoch=1000, time_step=4, half_month=14, save_period=1000, load_period=1000, learning_rate=0.1, ctx=mx.gpu(0))
+    exchange_rate_model(epoch=0, time_step=28, day=7, normalization_factor=100, save_period=1000 , load_period=1000 , learning_rate=0.001, ctx=mx.gpu(0))
 else :
-    print("Imported")
+    print("GRU Cell Imported")
 
 
