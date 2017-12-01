@@ -284,7 +284,7 @@ print(mx.asnumpy(out))
 
     * [***Deep Convolution Generative Adversarial Networks Targeting Using CIFAR10 , MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_target_with_Gluon)
 
-    * [***Predicting the yen exchange rate with LSTM or GRU('JPY'-'KRW')***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_the_yen_exchange_rate)
+    * [***Predicting the yen exchange rate with LSTM or GRU***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_the_yen_exchange_rate)
 
         ```python
         Finding 'xxxx' - JPY '100' is 'xxxx' KRW 
