@@ -284,7 +284,10 @@ print(mx.asnumpy(out))
 
     * [***Deep Convolution Generative Adversarial Networks Targeting Using CIFAR10 , MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_target_with_Gluon)
 
-    * [***Predicting the yen exchange rate with LSTM or GRU ( Find 'xxxx' - JPY '100' is 'xxxx' KRW)-ongoing***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_the_yen_exchange_rate)
+    * [***Predicting the yen exchange rate with LSTM or GRU ( Find 'xxxx' - JPY '100' is 'xxxx' KRW)***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_the_yen_exchange_rate)
+        ```python
+        I used data from '2010.01.04' ~ '2017.11.25'
+        ```
 
 >## ***Development environment***
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 

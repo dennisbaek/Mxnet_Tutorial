@@ -75,14 +75,16 @@ def prediction(test_data, time_step, day, normalization_factor, num_hidden, mode
             outputs, [H_states, C_states] = model(data[j], [H_states, C_states])
             outputs_list.append(outputs.asnumpy())
 
-    outputs_list=np.array(outputs_list)
-    outputs_list=np.reshape(outputs_list,(-1,))
-    print(np.shape(outputs_list))
+    outputs_list = np.array(outputs_list) * normalization_factor
+    outputs_list= np.reshape(outputs_list,(-1,))
 
+    print("KRW-JPY exchange rate prediction for November 27th.")
+    print("prediction value : {}".format(outputs_list[-1]))
+    print("real value : {}".format(971.66))
 
 def exchange_rate_model(epoch=1000, time_step=28, day=7, normalization_factor=100, save_period=1000 , load_period=1000 , learning_rate=0.001, ctx=mx.gpu(0)):
 
-    ''' 28 time x 7 day '''
+    ''' 28 time x 1 day '''
     #network parameter
     time_step = time_step # 28  step
     day = day # 1 day
